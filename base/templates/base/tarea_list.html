@@ -1,0 +1,84 @@
+{% extends 'base/principal.html' %}
+
+{% block content %}
+
+<div class="barra-superior">
+    <div>
+        <h1>Hola {{ request.user }}</h1>
+        <h3>
+            Tienes <i>{{ count }}</i>
+            tarea{{ count|pluralize }}
+            incompleta{{ count|pluralize }}
+        </h3>
+    </div>
+
+    {% if request.user.is_authenticated %}
+        <form method="post" action="{% url 'logout' %}">
+            {% csrf_token %}
+            <button class="boton" type="submit">Salir</button>
+        </form>
+    {% else %}
+        <a href="{% url 'login' %}">Ingresar</a>
+    {% endif %}
+</div>
+  <h1 class="titulo-principal brillo">Lista de Pendientes 2026</h1>
+
+
+<div id="envoltorio-agregar-buscar">
+    <form method="get" class="form-buscar">
+        <div class="campo-buscar">
+            <span class="icono-buscar">🔍</span>
+            <input
+                type="text"
+                name="area-buscar"
+                value="{{ valor_buscado }}"
+                placeholder="Buscar tarea..."
+            >
+        </div>
+
+        <button type="submit" class="btn-buscar">Buscar</button>
+    </form>
+
+    <a id="enlace-agregar" href="{% url 'crear-tarea' %}">
+         &#x271B;
+    </a>
+</div>
+
+
+
+
+
+
+<div class="envoltorio-items-tarea">
+    {% for tarea in tareas %}
+        <div class="envoltorio-tarea">
+
+            {% if tarea.completo %}
+                <div class="titulo-tarea">
+                    <span class="icono-tarea-completa"></span>
+                    <s>
+                        <a href="{% url 'editar-tarea' tarea.id %}">
+                            {{ tarea }}
+                        </a>
+                    </s>
+                </div>
+            {% else %}
+                <div class="titulo-tarea">
+                    <span class="icono-tarea-incompleta"></span>
+                    <a href="{% url 'editar-tarea' tarea.id %}">
+                        {{ tarea }}
+                    </a>
+                </div>
+            {% endif %}
+
+            <a class="enlace-eliminar" href="{% url 'eliminar-tarea' tarea.id %}">
+                &#x2718;
+            </a>
+
+        </div>
+    {% empty %}
+        <p>No hay tareas pendientes</p>
+    {% endfor %}
+</div>
+
+{% endblock %}
