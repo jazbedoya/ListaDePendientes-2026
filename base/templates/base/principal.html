@@ -204,6 +204,55 @@
             gap: 12px;
         }
 
+                /* CONTENEDOR DE LISTA DE TAREAS */
+        .envoltorio-items-tarea{
+            padding: 0 40px 40px 40px;
+        }
+
+        /* TARJETA DE CADA TAREA */
+        .envoltorio-tarea{
+            margin-bottom: 14px;
+            border-radius: 14px;
+            box-shadow: 0 8px 18px rgba(0,0,0,0.08);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        /* EFECTO SUAVE AL PASAR EL MOUSE */
+        .envoltorio-tarea:hover{
+            transform: translateY(-2px);
+            box-shadow: 0 12px 24px rgba(0,0,0,0.12);
+        }
+
+        /* TEXTO DE LA TAREA */
+        .titulo-tarea a{
+            font-weight: 600;
+            text-decoration: none;
+        }
+
+        /* TEXTO TAREA COMPLETA */
+        .titulo-tarea s a{
+            opacity: 0.6;
+        }
+
+        /* BOTÓN ELIMINAR MÁS DISCRETO */
+        .enlace-eliminar{
+            opacity: 0.6;
+            transition: opacity 0.2s ease, transform 0.2s ease;
+        }
+
+        .enlace-eliminar:hover{
+            opacity: 1;
+            transform: scale(1.1);
+        }
+
+        /* MOBILE */
+        @media (max-width: 768px){
+            .envoltorio-items-tarea{
+                padding: 0 20px 30px 20px;
+            }
+        }
+
+
 
     </style>
 </head>
