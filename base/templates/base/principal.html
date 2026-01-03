@@ -3,97 +3,72 @@
 <head>
     <meta charset="UTF-8">
     <title>Lista de Pendientes</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Abel&display=swap" rel="stylesheet">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&display=swap" rel="stylesheet">
-
 
     <style>
         body{
             background-color: #E3BDB6;
-
             font-family: 'Abel', sans-serif;
-
-            padding-top: 60px;
-
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
         }
 
         .container{
             max-width: 550px;
             margin: auto;
             background-color: #EBE1DF;
+            min-height: 100vh;
             -webkit-box-shadow: 2px 2px 13px -4px rgba(0,0,0,0.21);
             box-shadow: 2px 2px 13px -4px rgba(0,0,0,0.21);
-
         }
 
-        h1,
-        h2,
-        h3,
-        h4,
-        h5,
-        h6 { 
-           font-family: 'Lato', sans-serif;  
+        h1,h2,h3,h4,h5,h6{ 
+            font-family: 'Lato', sans-serif;  
         }
 
-        a,
-        p {
+        a,p{
             color: #805149;
-;
         }
 
-        .barra-superior {
+        .barra-superior{
             display: flex;
             justify-content: space-between;
-            color : #ffffff;
+            color: #ffffff;
             padding: 10px;
             border-radius: 5px 5px 0 0;
-            background: linear-gradient(90deg, #DBA5E6  0%, #C568D9 43%,  #C568D9
- 100%);
+            background: linear-gradient(90deg, #DBA5E6 0%, #C568D9 43%, #C568D9 100%);
         }
 
         .barra-superior a{
             color: #ffffff;
             text-decoration: none;
         }
-        
 
-        .titulo-principal {
-                font-size: 20px;
-                font-weight: 800;
-                text-align: center;
-                margin-bottom: 30px;
-                position: relative;
-            }
+        .titulo-principal{
+            font-size: 20px;
+            font-weight: 800;
+            text-align: center;
+            margin-bottom: 30px;
+        }
 
-            /* Texto con gradiente brillante */
-            .brillo {
-                background: linear-gradient(
-                    90deg,
-                    #ff4d6d,
-                    #c77dff,
-                    #4cc9f0,
-                    #ffd166,
-                    #ff4d6d
-                );
-                background-size: 300%;
-                -webkit-background-clip: text;
-                -webkit-text-fill-color: transparent;
-                animation: brillo-mover 3s infinite linear;
-            }
+        .brillo{
+            background: linear-gradient(90deg,#ff4d6d,#c77dff,#4cc9f0,#ffd166,#ff4d6d);
+            background-size: 300%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: brillo-mover 3s infinite linear;
+        }
 
-            /* Animación del brillo */
-            @keyframes brillo-mover {
-                5% {
-                    background-position: 0%;
-                }
-                100% {
-                    background-position: 300%;
-                }
-            }
+        @keyframes brillo-mover{
+            0%{background-position:0%;}
+            100%{background-position:300%;}
+        }
 
         .envoltorio-tarea{
             display: flex;
@@ -102,64 +77,54 @@
             padding: 20px;
             background-color: #ffffff;
             border-top: 1px solid rgb(225,225,225);
-
-            }
-        .titulo-tarea{
-            display: flex;
         }
 
-        .titulo-tarea {
+        .titulo-tarea{
             display: flex;
             align-items: center;
             gap: 12px;
             font-size: 18px;
         }
 
-        /* ICONO BASE */
         .icono-tarea-completa,
-        .icono-tarea-incompleta {
+        .icono-tarea-incompleta{
             height: 18px;
             width: 18px;
             border-radius: 50%;
             flex-shrink: 0;
         }
 
-        /* COMPLETA ✔ */
-        .icono-tarea-completa {
+        .icono-tarea-completa{
             background: linear-gradient(135deg, #52c788, #2ec4b6);
-            box-shadow: 0 0 6px rgba(82, 199, 136, 0.8);
+            box-shadow: 0 0 6px rgba(82,199,136,0.8);
         }
 
-        /* INCOMPLETA ○ */
-        .icono-tarea-incompleta {
+        .icono-tarea-incompleta{
             background: linear-gradient(135deg, #ff70d9, #c77dff);
-            box-shadow: 0 0 6px rgba(255, 112, 217, 0.8);
+            box-shadow: 0 0 6px rgba(255,112,217,0.8);
         }
-
 
         .enlace-eliminar{
             text-decoration: none;
             font-weight: 900;
             color: #f584dc;
             font-size: 22px;
-            line-height: 0;
         }
-         #envoltorio-agregar-buscar {
-    display: flex;
-    align-items: center;
-    gap: 16px;
-    margin: 20px 0;
-}
 
-        /* FORM */
-        .form-buscar {
+        #envoltorio-agregar-buscar{
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin: 20px 0;
+        }
+
+        .form-buscar{
             display: flex;
             align-items: center;
             gap: 8px;
         }
 
-        /* INPUT CON ICONO */
-        .campo-buscar {
+        .campo-buscar{
             display: flex;
             align-items: center;
             background: white;
@@ -168,26 +133,14 @@
             box-shadow: 0 4px 12px rgba(0,0,0,0.08);
         }
 
-        .icono-buscar {
-            margin-right: 6px;
-            font-size: 14px;
-            opacity: 0.6;
-        }
-
-        .campo-buscar input {
+        .campo-buscar input{
             border: none;
             outline: none;
             font-size: 14px;
             width: 140px;
         }
 
-        /* EFECTO AL HACER FOCUS */
-        .campo-buscar:focus-within {
-            box-shadow: 0 0 0 3px rgba(199, 125, 255, 0.35);
-        }
-
-        /* BOTÓN BUSCAR */
-        .btn-buscar {
+        .btn-buscar{
             background: linear-gradient(135deg, #ff70d9, #c77dff);
             color: white;
             border: none;
@@ -195,103 +148,46 @@
             border-radius: 999px;
             font-size: 14px;
             font-weight: bold;
-            cursor: pointer;
-            transition: transform 0.2s ease, box-shadow 0.2s ease;
         }
-
-        .btn-buscar:hover {
-            transform: translateY(-1px);
-            box-shadow: 0 6px 16px rgba(199, 125, 255, 0.4);
-        }
-        
 
         .cuerpo-tarjeta{
             padding: 20px;
-
-
         }
 
         .boton{
             padding: 12px 28px;
-            border: none;
             border-radius: 25px;
             background: linear-gradient(135deg, #ff6fd8, #c77dff);
             color: #ffffff;
             font-size: 10px;
             font-weight: 500;
-            cursor: pointer;
-            box-shadow: 0 5px 15px rgba(199, 125, 255, 0.35);
-            transition: all 0.3s ease;
         }
-            /* Contenedor registro */
-            .cuerpo-registro {
-            max-width: 520px;
-            margin: 10px auto;
-            padding: 30px;
-            background: #f3e9e7;
-            border-radius: 16px;
-            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
-            box-sizing: border-box;
+
+        @media (max-width: 768px){
+            .container{
+                width: 100%;
+                max-width: 100%;
+                margin: 0;
+                min-height: 100vh;
+                border-radius: 0;
             }
 
-            /* Formulario */
-            .cuerpo-registro form {
-            display: flex;
-            flex-direction: column;
-            gap: 18px;
+            .barra-superior{
+                border-radius: 0;
             }
 
-            /* Labels */
-            .cuerpo-registro label {
-            font-weight: 600;
-            color: #333;
-            margin-bottom: 6px;
+            body{
+                background-color: #EBE1DF;
             }
-
-            /* Inputs */
-            .cuerpo-registro input[type="text"],
-            .cuerpo-registro input[type="password"] {
-            width: 100%;
-            padding: 12px 14px;
-            border-radius: 12px;
-            border: 1px solid #cfcfcf;
-            font-size: 15px;
-            outline: none;
-            box-sizing: border-box; /* 🔑 evita overflow */
-            transition: border-color 0.25s, box-shadow 0.25s;
-            }
-
-            /* Focus limpio (sin doble borde) */
-            .cuerpo-registro input:focus {
-            border-color: #c77dff;
-            box-shadow: 0 0 0 2px rgba(199, 125, 255, 0.25);
-            }
-
-            /* Botón */
-            .cuerpo-registro .boton {
-            margin-top: 25px;
-            align-self: flex-start;
-            }
-
-            /* Texto inferior */
-            .cuerpo-registro p {
-            margin-top: 20px;
-            font-size: 14px;
-            }
-
+        }
     </style>
 </head>
 <body>
+
     <div class="container">
         {% block content %}
-
-
-
         {% endblock content %}
-
     </div>
-
-    
 
 </body>
 </html>
