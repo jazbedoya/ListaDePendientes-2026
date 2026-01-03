@@ -21,13 +21,12 @@
         <a href="{% url 'login' %}">Ingresar</a>
     {% endif %}
 </div>
-  <h1 class="titulo-principal brillo">Lista de Pendientes 2026</h1>
 
+<h1 class="titulo-principal brillo">Lista de Pendientes 2026</h1>
 
 <div id="envoltorio-agregar-buscar">
     <form method="get" class="form-buscar">
         <div class="campo-buscar">
-            <span class="icono-buscar"></span>
             <input
                 type="text"
                 name="area-buscar"
@@ -38,16 +37,7 @@
 
         <button type="submit" class="btn-buscar">Buscar</button>
     </form>
-
-    <a id="enlace-agregar" href="{% url 'crear-tarea' %}">
-         &#x271B;
-    </a>
 </div>
-
-
-
-
-
 
 <div class="envoltorio-items-tarea">
     {% for tarea in tareas %}
@@ -79,6 +69,12 @@
     {% empty %}
         <p>No hay tareas pendientes</p>
     {% endfor %}
+</div>
+
+<div style="padding: 40px; text-align: center;">
+    <a class="boton" href="{% url 'crear-tarea' %}">
+        Agregar tarea
+    </a>
 </div>
 
 {% endblock %}
