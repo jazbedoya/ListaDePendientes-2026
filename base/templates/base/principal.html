@@ -18,7 +18,7 @@
         body{
             margin: 0;
             font-family: 'Abel', sans-serif;
-            background-color: #E3BDB6;
+            background-color: #E6EFEE;
             min-height: 100vh;
             display: flex;
             justify-content: center;
@@ -27,7 +27,7 @@
         .container{
             width: 100%;
             max-width: 960px;
-            background-color: #EBE1DF;
+            background-color: #F2F7F6;
             min-height: 100vh;
             box-shadow: 0 10px 30px rgba(0,0,0,0.2);
         }
@@ -37,7 +37,7 @@
         }
 
         a,p{
-            color: #805149;
+            color: #245B57;
         }
 
         .barra-superior{
@@ -46,7 +46,7 @@
             align-items: center;
             color: white;
             padding: 20px;
-            background: linear-gradient(90deg, #DBA5E6 0%, #C568D9 50%, #C568D9 100%);
+            background: linear-gradient(90deg, #2A7F7A 0%, #1F5F5B 100%);
         }
 
         .titulo-principal{
@@ -59,11 +59,11 @@
         .brillo{
             background: linear-gradient(
                 90deg,
-                #ff4d6d,
-                #c77dff,
-                #4cc9f0,
-                #ffd166,
-                #ff4d6d
+                #2A7F7A,
+                #4DB6AC,
+                #7ED1C2,
+                #4DB6AC,
+                #2A7F7A
             );
             background-size: 300%;
             -webkit-background-clip: text;
@@ -80,12 +80,12 @@
             padding: 30px;
         }
 
-        /* BUSCADOR */
         #envoltorio-agregar-buscar{
             display: flex;
             align-items: center;
             gap: 12px;
             margin-bottom: 30px;
+            padding-left: 40px;
         }
 
         .campo-buscar{
@@ -105,7 +105,7 @@
         }
 
         .btn-buscar{
-            background: linear-gradient(135deg, #ff70d9, #c77dff);
+            background: linear-gradient(135deg, #2A7F7A, #1F5F5B);
             color: white;
             border: none;
             padding: 12px 22px;
@@ -114,12 +114,11 @@
             cursor: pointer;
         }
 
-        /* REGISTRO / LOGIN */
         .cuerpo-registro{
             max-width: 420px;
             margin: 80px auto;
             padding: 40px;
-            background: #f3e9e7;
+            background: #F2F7F6;
             border-radius: 20px;
             box-shadow: 0 15px 40px rgba(0,0,0,0.25);
         }
@@ -130,7 +129,7 @@
             color: white;
             padding: 22px;
             border-radius: 16px;
-            background: linear-gradient(135deg, #DBA5E6, #C568D9);
+            background: linear-gradient(135deg, #2A7F7A, #1F5F5B);
             text-align: center;
         }
 
@@ -148,14 +147,14 @@
             width: 100%;
             padding: 14px;
             border-radius: 12px;
-            border: 1px solid #ccc;
+            border: 1px solid #BFD8D5;
             font-size: 15px;
         }
 
         .cuerpo-registro input:focus{
             outline: none;
-            border-color: #c77dff;
-            box-shadow: 0 0 0 2px rgba(199,125,255,0.3);
+            border-color: #2A7F7A;
+            box-shadow: 0 0 0 2px rgba(42,127,122,0.3);
         }
 
         .boton{
@@ -163,7 +162,7 @@
             padding: 14px;
             border-radius: 999px;
             border: none;
-            background: linear-gradient(135deg, #ff6fd8, #c77dff);
+            background: linear-gradient(135deg, #2A7F7A, #1F5F5B);
             color: white;
             font-weight: bold;
             cursor: pointer;
@@ -179,7 +178,7 @@
 
         @media (max-width: 768px){
             body{
-                background: #EBE1DF;
+                background: #F2F7F6;
             }
 
             .container{
@@ -193,51 +192,37 @@
             }
         }
 
-        /* Ajuste buscador alineado y separado del borde */
-        #envoltorio-agregar-buscar{
-            padding-left: 40px;
-        }
-
-        .form-buscar{
-            display: flex;
-            align-items: center;
-            gap: 12px;
-        }
-
-                /* CONTENEDOR DE LISTA DE TAREAS */
         .envoltorio-items-tarea{
             padding: 0 40px 40px 40px;
         }
 
-        /* TARJETA DE CADA TAREA */
         .envoltorio-tarea{
             margin-bottom: 14px;
             border-radius: 14px;
             box-shadow: 0 8px 18px rgba(0,0,0,0.08);
             transition: transform 0.2s ease, box-shadow 0.2s ease;
+            background: white;
         }
 
-        /* EFECTO SUAVE AL PASAR EL MOUSE */
         .envoltorio-tarea:hover{
             transform: translateY(-2px);
             box-shadow: 0 12px 24px rgba(0,0,0,0.12);
         }
 
-        /* TEXTO DE LA TAREA */
         .titulo-tarea a{
             font-weight: 600;
             text-decoration: none;
+            color: #245B57;
         }
 
-        /* TEXTO TAREA COMPLETA */
         .titulo-tarea s a{
             opacity: 0.6;
         }
 
-        /* BOTÓN ELIMINAR MÁS DISCRETO */
         .enlace-eliminar{
             opacity: 0.6;
             transition: opacity 0.2s ease, transform 0.2s ease;
+            color: #1F5F5B;
         }
 
         .enlace-eliminar:hover{
@@ -245,15 +230,11 @@
             transform: scale(1.1);
         }
 
-        /* MOBILE */
         @media (max-width: 768px){
             .envoltorio-items-tarea{
                 padding: 0 20px 30px 20px;
             }
         }
-
-
-
     </style>
 </head>
 <body>
