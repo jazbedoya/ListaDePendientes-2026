@@ -15,208 +15,188 @@
             box-sizing: border-box;
         }
 
-        body{
-            margin: 0;
-            font-family: 'Abel', sans-serif;
-            background-color: #E3BDB6;
-            min-height: 100vh;
-            display: flex;
-            justify-content: center;
-        }
-
-        .container{
-            width: 100%;
-            max-width: 960px;
-            background-color: #EBE1DF;
-            min-height: 100vh;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-        }
-
-        h1,h2,h3,h4,h5,h6{
-            font-family: 'Lato', sans-serif;
-        }
-
-        a,p{
-            color: #805149;
-        }
-
-        /* BARRA SUPERIOR */
-        .barra-superior{
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            color: white;
-            padding: 20px;
-            background: linear-gradient(90deg, #DBA5E6 0%, #C568D9 50%, #C568D9 100%);
-        }
-
-        .barra-superior a{
-            color: white;
-            text-decoration: none;
-            font-weight: bold;
-        }
-
-        /* TITULO */
-        .titulo-principal{
-            text-align: center;
-            font-size: 26px;
-            font-weight: 900;
-            margin: 30px 0;
-        }
-
-        /* CONTENIDO */
-        .cuerpo-tarjeta{
-            padding: 30px;
-        }
-
-        /* LISTA */
-        .envoltorio-tarea{
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 18px;
-            background: white;
-            border-top: 1px solid #ddd;
-            font-size: 18px;
-        }
-
-        .titulo-tarea{
-            display: flex;
-            align-items: center;
-            gap: 12px;
-        }
-
-        .icono-tarea-completa,
-        .icono-tarea-incompleta{
-            width: 18px;
-            height: 18px;
-            border-radius: 50%;
-        }
-
-        .icono-tarea-completa{
-            background: linear-gradient(135deg, #52c788, #2ec4b6);
-        }
-
-        .icono-tarea-incompleta{
-            background: linear-gradient(135deg, #ff70d9, #c77dff);
-        }
-
-        .enlace-eliminar{
-            font-size: 22px;
-            font-weight: 900;
-            color: #f584dc;
-            text-decoration: none;
-        }
-
-        /* BUSCADOR */
-        #envoltorio-agregar-buscar{
-            display: flex;
-            gap: 14px;
-            margin-bottom: 25px;
-        }
-
-        .campo-buscar{
-            display: flex;
-            align-items: center;
-            background: white;
-            padding: 10px 14px;
-            border-radius: 999px;
-            width: 100%;
-        }
-
-        .campo-buscar input{
-            border: none;
-            outline: none;
-            font-size: 15px;
-            width: 100%;
-        }
-
-        .btn-buscar{
-            background: linear-gradient(135deg, #ff70d9, #c77dff);
-            color: white;
-            border: none;
-            padding: 10px 18px;
-            border-radius: 999px;
-            font-weight: bold;
-            cursor: pointer;
-        }
-
-        /* REGISTRO / LOGIN */
-        .cuerpo-registro{
-            max-width: 420px;
-            margin: 60px auto;
-            padding: 40px;
-            background: #f3e9e7;
-            border-radius: 20px;
-            box-shadow: 0 15px 40px rgba(0,0,0,0.25);
-        }
-
-        .cuerpo-registro h2{
-            margin-bottom: 25px;
-            font-size: 30px;
-            color: white;
-            padding: 20px;
-            border-radius: 16px;
-            background: linear-gradient(135deg, #DBA5E6, #C568D9);
-        }
-
-        .cuerpo-registro form{
-            display: flex;
-            flex-direction: column;
-            gap: 18px;
-        }
-
-        .cuerpo-registro label{
-            font-weight: 600;
-        }
-
-        .cuerpo-registro input{
-            padding: 14px;
-            border-radius: 12px;
-            border: 1px solid #ccc;
-            font-size: 15px;
-        }
-
-        .cuerpo-registro input:focus{
-            outline: none;
-            border-color: #c77dff;
-            box-shadow: 0 0 0 2px rgba(199,125,255,0.3);
-        }
-
-        .boton{
-            margin-top: 20px;
-            padding: 14px;
-            border-radius: 999px;
-            border: none;
-            background: linear-gradient(135deg, #ff6fd8, #c77dff);
-            color: white;
-            font-weight: bold;
-            cursor: pointer;
-            font-size: 14px;
-        }
-
-        .cuerpo-registro p{
-            margin-top: 20px;
-            text-align: center;
-        }
-
-        /* RESPONSIVE */
-        @media (max-width: 768px){
-            body{
-                background: #EBE1DF;
+                    body{
+                background-color: #E3BDB6;
+                font-family: 'Abel', sans-serif;
+                margin: 0;
+                padding: 0;
+                min-height: 100vh;
             }
 
+            /* CONTENEDOR PRINCIPAL */
             .container{
-                max-width: 100%;
-                box-shadow: none;
+                max-width: 550px;
+                margin: auto;
+                background-color: #EBE1DF;
+                min-height: 100vh;
+                box-shadow: 2px 2px 13px -4px rgba(0,0,0,0.21);
             }
 
-            .cuerpo-registro{
-                margin: 30px 16px;
-                padding: 30px;
+            h1,h2,h3,h4,h5,h6{ 
+                font-family: 'Lato', sans-serif;  
             }
-        }
-    </style>
+
+            a,p{
+                color: #805149;
+            }
+
+            /* BARRA SUPERIOR */
+            .barra-superior{
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                color: #ffffff;
+                padding: 16px;
+                background: linear-gradient(
+                    90deg,
+                    #DBA5E6 0%,
+                    #C568D9 43%,
+                    #C568D9 100%
+                );
+            }
+
+            .barra-superior a{
+                color: #ffffff;
+                text-decoration: none;
+            }
+
+            /* TITULO PRINCIPAL */
+            .titulo-principal{
+                font-size: 28px;
+                font-weight: 900;
+                text-align: center;
+                margin: 30px 0;
+            }
+
+            /* BRILLO */
+            .brillo{
+                background: linear-gradient(
+                    90deg,
+                    #ff4d6d,
+                    #c77dff,
+                    #4cc9f0,
+                    #ffd166,
+                    #ff4d6d
+                );
+                background-size: 300%;
+                -webkit-background-clip: text;
+                background-clip: text;
+                color: transparent;
+                animation: brillo-mover 3s linear infinite;
+            }
+
+            @keyframes brillo-mover{
+                0%{ background-position: 0%; }
+                100%{ background-position: 300%; }
+            }
+
+            /* BUSCADOR + BOTON */
+            #envoltorio-agregar-buscar{
+                display: flex;
+                align-items: center;
+                gap: 12px;
+                margin: 25px 0;
+                flex-wrap: nowrap;
+            }
+
+            .form-buscar{
+                display: flex;
+                align-items: center;
+                gap: 10px;
+            }
+
+            .campo-buscar{
+                display: flex;
+                align-items: center;
+                background: white;
+                border-radius: 999px;
+                padding: 8px 14px;
+                box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            }
+
+            .campo-buscar input{
+                border: none;
+                outline: none;
+                font-size: 14px;
+                width: 160px;
+            }
+
+            .btn-buscar{
+                background: linear-gradient(135deg, #ff70d9, #c77dff);
+                color: white;
+                border: none;
+                padding: 8px 16px;
+                border-radius: 999px;
+                font-size: 14px;
+                font-weight: bold;
+                cursor: pointer;
+            }
+
+            /* LISTA DE TAREAS */
+            .envoltorio-tarea{
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                padding: 20px;
+                background-color: #ffffff;
+                border-top: 1px solid rgb(225,225,225);
+            }
+
+            .titulo-tarea{
+                display: flex;
+                align-items: center;
+                gap: 12px;
+                font-size: 18px;
+            }
+
+            /* ICONOS */
+            .icono-tarea-completa,
+            .icono-tarea-incompleta{
+                height: 18px;
+                width: 18px;
+                border-radius: 50%;
+            }
+
+            .icono-tarea-completa{
+                background: linear-gradient(135deg, #52c788, #2ec4b6);
+            }
+
+            .icono-tarea-incompleta{
+                background: linear-gradient(135deg, #ff70d9, #c77dff);
+            }
+
+            /* BOTONES */
+            .boton{
+                padding: 10px 22px;
+                border-radius: 25px;
+                background: linear-gradient(135deg, #ff6fd8, #c77dff);
+                color: #ffffff;
+                font-size: 12px;
+                border: none;
+                cursor: pointer;
+            }
+
+            /* RESPONSIVE */
+            @media (max-width: 768px){
+                .container{
+                    max-width: 100%;
+                    width: 100%;
+                    margin: 0;
+                }
+
+                body{
+                    background-color: #EBE1DF;
+                }
+            }
+
+            @media (min-width: 1024px){
+                .container{
+                    max-width: 100%;
+                    width: 100%;
+                }
+            }
+
+                </style>
 </head>
 <body>
 
