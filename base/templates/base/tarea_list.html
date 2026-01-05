@@ -39,8 +39,11 @@
     </form>
 </div>
 
+<!-- ================= PENDIENTES DEL DÍA ================= -->
+<h2 style="padding: 0 40px;">📅 Pendientes del día</h2>
+
 <div class="envoltorio-items-tarea">
-    {% for tarea in tareas %}
+    {% for tarea in tareas_dia %}
         <div class="envoltorio-tarea">
 
             {% if tarea.completo %}
@@ -64,10 +67,43 @@
             <a class="enlace-eliminar" href="{% url 'eliminar-tarea' tarea.id %}">
                 &#x2718;
             </a>
-
         </div>
     {% empty %}
-        <p>No hay tareas pendientes</p>
+        <p style="padding: 0 40px;">No hay tareas para hoy</p>
+    {% endfor %}
+</div>
+
+<!-- ================= PENDIENTES A LARGO PLAZO ================= -->
+<h2 style="padding: 0 40px; margin-top: 40px;">🗓 Pendientes a largo plazo</h2>
+
+<div class="envoltorio-items-tarea">
+    {% for tarea in tareas_anio %}
+        <div class="envoltorio-tarea">
+
+            {% if tarea.completo %}
+                <div class="titulo-tarea">
+                    <span class="icono-tarea-completa"></span>
+                    <s>
+                        <a href="{% url 'editar-tarea' tarea.id %}">
+                            {{ tarea }}
+                        </a>
+                    </s>
+                </div>
+            {% else %}
+                <div class="titulo-tarea">
+                    <span class="icono-tarea-incompleta"></span>
+                    <a href="{% url 'editar-tarea' tarea.id %}">
+                        {{ tarea }}
+                    </a>
+                </div>
+            {% endif %}
+
+            <a class="enlace-eliminar" href="{% url 'eliminar-tarea' tarea.id %}">
+                &#x2718;
+            </a>
+        </div>
+    {% empty %}
+        <p style="padding: 0 40px;">No hay tareas a largo plazo</p>
     {% endfor %}
 </div>
 
