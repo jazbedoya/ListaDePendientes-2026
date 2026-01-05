@@ -26,9 +26,8 @@ SECRET_KEY = 'django-insecure-z4me!r1jlbhg4@#!4j-ml!a@9-u!=bku=%#896r%u@vvoj**t)
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = [
-    'listadependientes-2026.onrender.com',
-]
+ALLOWED_HOSTS = ['*']
+
 
 
 
@@ -84,7 +83,7 @@ import os
 
 DATABASES = {
     'default': dj_database_url.config(
-        default=os.environ.get('DATABASE_URL')
+        default='sqlite:///db.sqlite3'
     )
 }
 

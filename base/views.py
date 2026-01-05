@@ -6,6 +6,10 @@ from django.views.generic.edit import CreateView, UpdateView, DeleteView, FormVi
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.views import LoginView
 from django.contrib.auth import login
+from django.utils import timezone
+from datetime import timedelta
+
+
 
 
 from django.contrib.auth.views import LoginView
@@ -44,65 +48,74 @@ class PaginaRegistro(FormView):
         return super(PaginaRegistro,self).get(*arg, **kwargs)
 
 
-
 class ListaPendientes(LoginRequiredMixin, ListView):
     model = Tarea
     template_name = 'base/lista.html'
     context_object_name = 'tareas'
 
-
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
 
         # Mostrar solo tareas del usuario logueado
-        context['tareas'] = context['tareas'].filter(usuario=self.request.user)
+        tareas_usuario = context['tareas'].filter(usuario=self.request.user)
 
         # Contar tareas incompletas
-        context['count'] = context['tareas'].filter(completo=False).count()
+        context['count'] = tareas_usuario.filter(completo=False).count()
 
         # Búsqueda
         valor_buscado = self.request.GET.get('area-buscar', '')
-
         if valor_buscado:
-            context['tareas'] = context['tareas'].filter(
+            tareas_usuario = tareas_usuario.filter(
                 titulo__icontains=valor_buscado
             )
             context['valor-buscado'] = valor_buscado
 
+        # Tareas por tipo
+        context['tareas_dia'] = tareas_usuario.filter(tipo='DIA')
+        context['tareas_anio'] = tareas_usuario.filter(tipo='ANIO')
+
+        hoy = timezone.now().date()
+        limite = hoy + timedelta(days=5)  # ← CAMBIA AQUÍ LOS DÍAS
+
+        context['alertas'] = tareas_usuario.filter(
+            fecha_limite__isnull=False,
+            fecha_limite__lte=limite,
+            completo=False
+        )
+
         return context
 
+        
 
 
-
-class DetalleTarea( LoginRequiredMixin,DetailView):
+class DetalleTarea(LoginRequiredMixin, DetailView):
     model = Tarea
-    template_name = 'base/tarea_detail.html'
     context_object_name = 'tarea'
     template_name = 'base/tarea.html'
 
 
+
+# ================= CREAR =================
 class CrearTarea(LoginRequiredMixin, CreateView):
-    model= Tarea
-    fields =['titulo', 'descripcion', 'completo']
+    model = Tarea
+    fields = ['titulo', 'tipo', 'fecha_limite', 'completo']
     success_url = reverse_lazy('tareas')
 
     def form_valid(self, form):
-        form.instance.usuario= self.request.user
-        return super(CrearTarea,self).form_valid(form)
+        form.instance.usuario = self.request.user
+        return super().form_valid(form)
 
-
-class EditarTarea(LoginRequiredMixin,UpdateView):
-    model= Tarea
-    fields =['titulo', 'descripcion', 'completo']
+# ================= EDITAR =================
+class EditarTarea(LoginRequiredMixin, UpdateView):
+    model = Tarea
+    fields = ['titulo', 'tipo', 'fecha_limite', 'completo']
     success_url = reverse_lazy('tareas')
 
 
+# ================= ELIMINAR =================
 class EliminarTarea(LoginRequiredMixin, DeleteView):
-    model= Tarea
+    model = Tarea
     context_object_name = 'tarea'
-   
     success_url = reverse_lazy('tareas')
-
-
 
 

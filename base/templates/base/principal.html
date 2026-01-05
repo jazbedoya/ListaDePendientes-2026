@@ -234,7 +234,61 @@
             .envoltorio-items-tarea{
                 padding: 0 20px 30px 20px;
             }
+                }
+        .barra-superior {
+            position: relative;
         }
+
+        .notificaciones {
+            position: relative;
+            
+                }
+
+        .badge {
+            position: absolute;
+            top: -2px;      /* antes estaba muy arriba */
+            right: 35px;    /* lo acerca a la campana */
+            background: red;
+            color: white;
+            font-size: 11px;
+            padding: 2px 5px;
+            border-radius: 50%;
+            line-height: 1;
+        }
+
+
+            .panel-alertas{
+        display: none;
+        position: absolute;
+        top: 40px;
+        right: 0;
+        width: 260px;
+        background: white;
+        border-radius: 12px;
+        padding: 12px;
+        box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+        z-index: 1000;
+    }
+
+        .alerta-item{
+            padding: 10px 6px;
+            border-bottom: 1px solid #e0e0e0;
+            font-size: 14px;
+            color: #245B57;
+        }
+
+        .alerta-item:last-child{
+            border-bottom: none;
+        }
+
+        .panel-alertas h4{
+            margin: 0 0 10px 0;
+            font-size: 15px;
+            color: #1F5F5B;
+        }
+
+
+
     </style>
 </head>
 <body>
@@ -243,6 +297,22 @@
     {% block content %}
     {% endblock content %}
 </div>
+
+<script>
+function toggleAlertas(){
+    const panel = document.getElementById("panel-alertas");
+    panel.style.display = panel.style.display === "block" ? "none" : "block";
+}
+
+document.addEventListener("click", function(e){
+    const panel = document.getElementById("panel-alertas");
+    const campana = document.querySelector(".campana");
+
+    if (panel && !panel.contains(e.target) && !campana.contains(e.target)) {
+        panel.style.display = "none";
+    }
+});
+</script>
 
 </body>
 </html>
