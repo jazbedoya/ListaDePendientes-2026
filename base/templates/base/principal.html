@@ -9,6 +9,9 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Abel&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&display=swap" rel="stylesheet">
+    <link rel="manifest" href="/static/manifest.json">
+    <meta name="theme-color" content="#2A7F7A">
+
 
     <style>
         *{
@@ -299,6 +302,7 @@
 </div>
 
 <script>
+/* ---------- CAMPANA DE ALERTAS ---------- */
 function toggleAlertas(){
     const panel = document.getElementById("panel-alertas");
     panel.style.display = panel.style.display === "block" ? "none" : "block";
@@ -312,6 +316,14 @@ document.addEventListener("click", function(e){
         panel.style.display = "none";
     }
 });
+
+
+/* ---------- SERVICE WORKER (PWA) ---------- */
+if ("serviceWorker" in navigator) {
+    navigator.serviceWorker.register("/static/service-worker.js")
+        .then(reg => console.log("✅ Service Worker registrado"))
+        .catch(err => console.error("❌ Error Service Worker", err));
+}
 </script>
 
 </body>
